@@ -1,8 +1,6 @@
--- [[ Setting options ]]
--- See `:help vim.o`
-
 -- Set highlight on search
 vim.o.hlsearch = false
+vim.opt.incsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -35,3 +33,9 @@ vim.o.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.numberwidth = 2      -- set number column width to 2 {default 4}
+vim.opt.cursorline = true    -- highlight the current line
+vim.opt.updatetime = 100     -- faster completion (4000ms default)
+vim.opt.smartindent = true   -- make indenting smarter again
+vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
+vim.opt.colorcolumn = "120"

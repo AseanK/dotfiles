@@ -17,66 +17,37 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  {
-    -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+  -- file explorer
+  "nvim-tree/nvim-tree.lua",
 
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+  -- auto complete symbols
+  "windwp/nvim-autopairs",
 
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
-    },
-  },
+  -- highlight selected val
+  "RRethy/vim-illuminate",
 
-  {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-    },
-  },
+  -- display color
+  "NvChad/nvim-colorizer.lua",
 
-  {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
-
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
-  },
-
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  -- smooth scroll [Not activate]
+  -- "karb94/neoscroll.nvim",
 
   -- file explorer
-  { "nvim-tree/nvim-tree.lua" },
+  -- "stevearc/oil.nvim",
 
+  -- Add indentation guides even on blank lines
+  { 'lukas-reineke/indent-blankline.nvim', main = 'ibl', opts = {}, },
+
+  -- "gc" to comment visual regions/lines
+  { 'numToStr/Comment.nvim',               opts = {} },
+
+
+  require 'plugin.lualine',
+  require 'plugin.lspconfig',
   require 'plugin.whichkey',
   require 'plugin.treesitter',
   require 'plugin.telescope',
   require 'plugin.theme',
+  require 'plugin.cmp',
+  require 'plugin.harpoon',
 }, {})

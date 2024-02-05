@@ -47,7 +47,11 @@ require('which-key').register {
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
 }
 
-require('mason').setup()
+require('mason').setup({
+  ui = {
+    border = "rounded",
+  },
+})
 require('mason-lspconfig').setup()
 
 local servers = {
