@@ -46,6 +46,9 @@ function M.config()
         max = vim.diagnostic.severity.ERROR,
       },
     },
+    git = {
+      enable = true,
+    }
   }
 end
 

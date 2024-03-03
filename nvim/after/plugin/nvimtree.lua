@@ -7,7 +7,7 @@ require("nvim-tree").setup {
   sync_root_with_cwd = true,
   view = {
     relativenumber = true,
-    width = 25,
+    width = 30,
   },
   renderer = {
     add_trailing = false,
@@ -44,4 +44,5 @@ require("nvim-tree").setup {
   git = {
     enable = true,
   }
+
 }
