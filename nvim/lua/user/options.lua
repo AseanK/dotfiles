@@ -39,3 +39,8 @@ vim.opt.updatetime = 100     -- faster completion (4000ms default)
 vim.opt.smartindent = true   -- make indenting smarter again
 vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
 vim.opt.colorcolumn = "120"
+vim.opt.smartindent = true
+vim.opt.title = true
+vim.opt.breakindent = true
+vim.opt.smarttab = true
+vim.opt.wildignore:append({ "*/node_modules/*" })

@@ -1,39 +1,44 @@
-return   { 'folke/which-key.nvim', opts = {} },
-  {
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      -- See `:help gitsigns.txt`
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-      on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
+local M = {
+  "folke/which-key.nvim",
+}
 
-        -- don't override the built-in and fugitive keymaps
-        local gs = package.loaded.gitsigns
-        vim.keymap.set({ 'n', 'v' }, ']c', function()
-          if vim.wo.diff then
-            return ']c'
-          end
-          vim.schedule(function()
-            gs.next_hunk()
-          end)
-          return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = 'Jump to next hunk' })
-        vim.keymap.set({ 'n', 'v' }, '[c', function()
-          if vim.wo.diff then
-            return '[c'
-          end
-          vim.schedule(function()
-            gs.prev_hunk()
-          end)
-          return '<Ignore>'
-        end, { expr = true, buffer = bufnr, desc = 'Jump to previous hunk' })
-      end,
+function M.config()
+  local which_key = require "which-key"
+  which_key.setup {
+    plugins = {
+      marks = true,
+      registers = true,
+      spelling = {
+        enabled = true,
+        suggestions = 20,
+      },
+      presets = {
+        operators = false,
+        motions = false,
+        text_objects = false,
+        windows = true,
+        nav = false,
+        z = false,
+        g = false,
+      },
     },
+    motions = {
+      count = true,
+    },
+    window = {
+      border = "single",
+      position = "bottom",
+      margin = { 10, 10, 2, 10 },
+      padding = { 2, 2, 2, 2 },
+    },
+    layout = {
+      spacing = 3,
+      align = "center",
+    },
+    show_help = false,
+    show_keys = false,
+    triggers = "auto",
   }
+end
+
+return M
