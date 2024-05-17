@@ -44,4 +44,6 @@ require("lazy").setup({
 	require("plugin.indentline"),
 	require("plugin.conform"),
 	require("plugin.alpha"),
+	require("plugin.noice"),
+	require("plugin.leap"),
 }, {})
